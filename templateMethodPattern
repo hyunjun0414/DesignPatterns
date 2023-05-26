@@ -1,0 +1,89 @@
+package com.java.templateMethodPattern;
+
+public class Cricket extends Game {
+
+    @Override
+    void initialize() {
+        System.out.println("크리켓 게임 초기화 중...");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("크리켓 게임 시작!");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("크리켓 게임 종료!");
+    }
+}
+
+//////////////////////////////////
+
+
+package com.java.templateMethodPattern;
+
+public class FootBall extends Game {
+
+    @Override
+    void initialize() {
+        System.out.println("축구 게임 초기화 중...");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("축구 게임 시작!");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("축구 게임 종료!");
+    }
+}
+
+
+//////////////////////////////////
+
+
+
+package com.java.templateMethodPattern;
+
+public abstract class Game {
+
+    abstract void initialize();
+    abstract void startPlay();
+    abstract void endPlay();
+
+    // 템플릿 메서드
+    public final void play() {
+
+        // 게임 초기화
+        initialize();
+
+        // 게임 시작
+        startPlay();
+
+        // 게임 종료
+        endPlay();
+    }
+}
+
+
+
+//////////////////////////////////
+
+
+
+package com.java.templateMethodPattern;
+
+public class TemplatePatternDemo {
+
+    public static void main(String[] args) {
+        Game game = new Cricket();
+        game.play();
+        System.out.println();
+
+        game = new FootBall();
+        game.play();
+    }
+}
